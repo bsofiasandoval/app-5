@@ -13,8 +13,10 @@ export const useRandomUser = () => {
         const response = await fetch('https://randomuser.me/api/');
         const data = await response.json();
         setUser(data.results[0]);
-      } catch (error) {
+      } catch (err) {
         setError('Failed to fetch user');
+        console.log(err);
+        
       } finally {
         setLoading(false);
       }
